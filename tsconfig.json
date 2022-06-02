@@ -4,6 +4,8 @@
     "module": "commonjs",
     "declaration": true,
     "outDir": "./lib",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "skipLibCheck": true,
     "strict": false
   },

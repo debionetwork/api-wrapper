@@ -1,3 +1,5 @@
+import 'regenerator-runtime/runtime';
+
 module.exports = async () => {
   const path = require('path'); // eslint-disable-line
   const compose = require('docker-compose'); // eslint-disable-line

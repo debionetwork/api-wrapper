@@ -1,12 +1,18 @@
 import { cryptoWaitReady } from '@polkadot/util-crypto';
 import { ApiPromise, Keyring, WsProvider } from '@polkadot/api';
+import {
+  registerGeneticAnalyst,
+  registerLab,
+  stakeGeneticAnalyst,
+} from '@debionetwork/polkadot-provider';
+import { labDataMock } from '../mocks/substrate/models/labs/labs.mock';
+import { geneticAnalystsDataMock } from '../mocks/substrate/models/genetic-analysts/genetic-analysts.mock';
 import { connectionRetries } from './config';
 
 // eslint-disable-next-line
 const WebSocket = require('ws');
 
 const wsUrl = 'ws://127.0.0.1:9944';
-process.env.SUBSTRATE_URL = wsUrl;
 
 async function initalSubstrateConnection(): Promise<WebSocket> {
   return new Promise((resolve, reject) => {
@@ -40,7 +46,36 @@ module.exports = async () => {
   const keyring = new Keyring({ type: 'sr25519' });
   const pair = await keyring.addFromUri(mnemonicUri, { name: 'Alice default' });
 
-  // TODO inject mock data to node
+  console.log('Injecting `Lab` into debio-node 💉...');
+
+  // eslint-disable-next-line
+  const labPromise = new Promise((resolve, reject) => {
+    registerLab(api as any, pair, labDataMock.info, () =>
+      resolve('`Lab` data injection successful! ✅'),
+    );
+  });
+
+  console.log(await labPromise);
+
+  console.log('Injecting `GeneticAnalyst` into debio-node 💉...');
+
+  // eslint-disable-next-line
+  const geneticAnalystsPromise = new Promise((resolve, reject) => {
+    registerGeneticAnalyst(api as any, pair, geneticAnalystsDataMock.info, () =>
+      resolve('`GeneticAnalyst` data injection successful! ✅'),
+    );
+  });
+
+  console.log(await geneticAnalystsPromise);
+
+  // eslint-disable-next-line
+  const stakeGeneticAnalystsPromise = new Promise((resolve, reject) => {
+    stakeGeneticAnalyst(api as any, pair, () =>
+      resolve('`GeneticAnalyst` staking successful! ✅'),
+    );
+  });
+
+  console.log(await stakeGeneticAnalystsPromise);
 
   await wsProvider.disconnect();
   await api.disconnect();
