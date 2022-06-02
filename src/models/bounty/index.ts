@@ -13,5 +13,5 @@ export class DataStaking {
   filename: string;
   created_at: Date;
   updated_at: Date;
-  event_processed: Boolean
+  event_processed: boolean
 }

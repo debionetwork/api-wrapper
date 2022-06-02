@@ -1,7 +1,7 @@
 import { apiClientRequest } from "./index";
 
-export async function healthCheck(url: String, api_key: String, auth: Object, pinata_key) {
-  const result = await apiClientRequest(url, api_key, auth, pinata_key)
+export async function healthCheck(url: string, apiKey: string, auth: any, pinataKey: string) {
+  const result = await apiClientRequest(url, apiKey, auth, pinataKey)
     .get("/health")
   return result
 }

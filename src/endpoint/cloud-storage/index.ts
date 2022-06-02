@@ -1,6 +1,6 @@
 import { apiClientRequest } from "../index";
 
-export async function getSignedUrl(url: String, key: String, auth: any, filename: String, action: String) {
+export async function getSignedUrl(url: string, key: string, auth: any, filename: string, action: string) {
   const { data: { signedUrl } } = await apiClientRequest(url, key, auth)
     .get("/gcs/signed-url", {
       params: {

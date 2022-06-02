@@ -1,6 +1,6 @@
 import { apiClientRequest } from "./index";
 
-export async function getLocation(url: String, key: String, auth: Object, country = undefined, region = undefined, city = undefined) {
+export async function getLocation(url: string, key: string, auth: any, country = undefined, region = undefined, city = undefined) { 
   let param = {}
   if(country){
     param["country"] = country
