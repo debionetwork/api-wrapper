@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export function apiClientRequest(url, key, auth) {
+export function apiClientRequest(url, key, auth, pinata_key = '') {
 
   const headers = {
     "Content-Type": "application/json",
