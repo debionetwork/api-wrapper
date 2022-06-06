@@ -1,19 +1,22 @@
-import { apiClientRequest } from "./index";
+import { apiClientRequest } from './index';
 
-export async function getLocation(url: string, key: string, auth: any, country = undefined, region = undefined, city = undefined) { 
-  let param = {}
-  if(country){
-    param["country"] = country
+interface LocationParam {
+  [key: string]: any;
+}
+
+export async function getLocation(url: string, key: string, auth: any, country?, region?, city?) {
+  const param: LocationParam = {};
+  if (country) {
+    param.country_code = country;
   }
-  if(country){
-    param["region"] = region
+  if (country) {
+    param.state_code = region;
   }
-  if(country){
-    param["city"] = city
+  if (country) {
+    param.city_id = city;
   }
-  const result = await apiClientRequest(url, key, auth)
-    .get("/gcs/signed-url", {
-      params: param
-    })
-  return result
+  const result = await apiClientRequest(url, key, auth).get('/location', {
+    params: param,
+  });
+  return result;
 }

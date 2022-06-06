@@ -28,3 +28,6 @@ export async function connectionRetries(
     }
   }
 }
+
+export const debioApiKey = "ASDASDASDASDASDASDASDASDASDASD";
+export const debioTestUrl = "http://localhost:3000";

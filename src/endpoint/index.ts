@@ -1,17 +1,16 @@
-import axios from "axios"
+import axios from 'axios';
 
-export function apiClientRequest(url, key, auth, pinata_key = '') {
-
+export function apiClientRequest(url, key, auth, pinataKey = '') {
   const headers = {
-    "Content-Type": "application/json",
-    "debio-api-key": key
-  }
+    'Content-Type': 'application/json',
+    'debio-api-key': key,
+  };
 
-  const axiosInstance =  axios.create({
+  const axiosInstance = axios.create({
     baseURL: url,
     headers,
-    auth
-  })
+    auth,
+  });
 
-  return axiosInstance
+  return axiosInstance;
 }

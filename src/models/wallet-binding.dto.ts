@@ -1,4 +1,4 @@
 export class WalletBindingDTO {
-    accountId: string;
-    ethAddress: any;
+  accountId: string;
+  ethAddress: any;
 }
