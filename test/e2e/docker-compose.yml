@@ -1,6 +1,19 @@
 version: '3'
 
 services:
+  backend:
+    container_name: debio-backend
+    restart: always
+    image: debionetwork/debio-backend:latest
+    volumes:
+      - ./.env:/app/.env
+      - ./service-account.json:/app/service-account.json
+    depends_on:
+      - db
+      - redis
+      - elasticsearch
+      - node
+    network_mode: "host"
   db:
     container_name: debio-postgres
     image: postgres:14-alpine
