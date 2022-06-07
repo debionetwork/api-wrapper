@@ -1,4 +1,4 @@
-import { apiClientRequest } from '../index';
+import { apiClientRequest } from './index';
 
 export async function getSignedUrl(url: string, key: string, auth: any, filename: string, action: string) {
   const {

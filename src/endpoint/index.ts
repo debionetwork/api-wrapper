@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export function apiClientRequest(url, key, auth, pinataKey = '') {
+export function apiClientRequest(url, key, auth?, pinataKey?) {
   const headers = {
     'Content-Type': 'application/json',
     'debio-api-key': key,

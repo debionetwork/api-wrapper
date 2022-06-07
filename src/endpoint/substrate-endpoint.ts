@@ -150,7 +150,7 @@ export async function getGeneticAnalysisOrderByAnalyst(
   page: number,
   size: number,
 ) {
-  return await apiClientRequest(url, key, auth).get(`/genetic-analysis-order/list/analyst/${analystId}`, {
+  return await apiClientRequest(url, key, auth).get(`/substrate/genetic-analysis-order/list/analyst/${analystId}`, {
     params: {
       keyword,
       page,
@@ -168,7 +168,7 @@ export async function getGeneticAnalysisOrderByCustomer(
   page: number,
   size: number,
 ) {
-  return await apiClientRequest(url, key, auth).get(`/genetic-analysis-order/list/customer/${customerId}`, {
+  return await apiClientRequest(url, key, auth).get(`/substrate/genetic-analysis-order/list/customer/${customerId}`, {
     params: {
       keyword,
       page,
@@ -178,9 +178,9 @@ export async function getGeneticAnalysisOrderByCustomer(
 }
 
 export async function walletBinding(url: string, key: string, auth: any, data: WalletBindingDTO) {
-  return await apiClientRequest(url, key, auth).post('/wallet-binding', data);
+  return await apiClientRequest(url, key, auth).post('/substrate/wallet-binding', data);
 }
 
 export async function geneticAnalysisOrderPaid(url: string, key: string, auth: any, data: GeneticAnalysisOrderPaidDto) {
-  return await apiClientRequest(url, key, auth).post('/geneticAnalysisOrderPaid', data);
+  return await apiClientRequest(url, key, auth).post('/substrate/geneticAnalysisOrderPaid', data);
 }
