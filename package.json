@@ -9,7 +9,7 @@
   "scripts": {
     "install:hooks": ".maintain/install-hooks.sh",
     "build": "tsc",
-    "check": "npm run test:e2e && npm run format && npm run lint && npm run build",
+    "check": "npm run format && npm run lint && npm run build",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
