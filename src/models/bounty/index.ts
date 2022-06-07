@@ -5,7 +5,7 @@ export class DataStaking {
     this.filename = anyJson.filename;
     this.created_at = anyJson.created_at;
     this.updated_at = anyJson.updated_at;
-    this.event_processed = anyJson.event_processed
+    this.event_processed = anyJson.event_processed;
   }
 
   order_id: string;
@@ -13,5 +13,5 @@ export class DataStaking {
   filename: string;
   created_at: Date;
   updated_at: Date;
-  event_processed: boolean
+  event_processed: boolean;
 }

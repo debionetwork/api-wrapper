@@ -10,5 +10,6 @@ touch .git/hooks/pre-push
 echo "#!/bin/sh
 
 npm run check
+npm run test:e2e
 " > .git/hooks/pre-push
 chmod +x .git/hooks/pre-push
