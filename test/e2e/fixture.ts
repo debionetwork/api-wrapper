@@ -147,9 +147,9 @@ module.exports = async () => {
     .into(State)
     .values({
       id: 15,
-      name: 'Carinthia',
+      name: 'Bam Province',
       country_id: 15,
-      country_code: 'AT',
+      country_code: 'BAM',
       state_code: '2',
       latitude: 47.1537165,
       longitude: 16.2688797,
@@ -168,7 +168,7 @@ module.exports = async () => {
       state_id: 2057,
       state_code: '2',
       country_id: 15,
-      country_code: 'AT',
+      country_code: 'BF',
       latitude: 46.60126,
       longitude: 13.82241,
     })
