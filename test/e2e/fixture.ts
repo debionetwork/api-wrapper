@@ -10,6 +10,12 @@ import { Country } from '../mocks/postgres/models/location/country.entity';
 import { State } from '../mocks/postgres/models/location/state.entity';
 import { City } from '../mocks/postgres/models/location/city.entity';
 import { Reward } from '../mocks/postgres/models/reward/reward.entity';
+import { EmrCategory } from '../mocks/postgres/models/category/emr.entity';
+import { ServiceCategory } from '../mocks/postgres/models/category/service.entity';
+import { SpecializationCategory } from '../mocks/postgres/models/category/specialization.entity';
+import { emrList } from '../mocks/postgres/models/category/emr.mock.data';
+import { serviceList } from '../mocks/postgres/models/category/service.mock.data';
+import { specializationList } from '../mocks/postgres/models/category/specialization.mock.data';
 
 function initalPostgresConnection(): Promise<Connection> {
   return createConnection({
@@ -44,9 +50,41 @@ module.exports = async () => {
       DataStakingEvents,
       DataTokenToDatasetMapping,
       EmailNotification,
+      EmrCategory,
+      ServiceCategory,
+      SpecializationCategory,
     ],
     synchronize: true,
   });
+
+  console.log('Injecting `EMR Category` into debio-postgres 💉...');
+
+  await dbPostgresMigration
+    .createQueryBuilder()
+    .insert()
+    .into(EmrCategory)
+    .values(emrList)
+    .execute();
+  console.log('`EMR Category` data injection successful! ✅');
+
+  console.log('Injecting `Service Category` into debio-postgres 💉...');
+  await dbPostgresMigration
+    .createQueryBuilder()
+    .insert()
+    .into(ServiceCategory)
+    .values(serviceList)
+    .execute();
+  console.log('`EMR Category` data injection successful! ✅');
+
+  console.log('Injecting `Specialization Category` into debio-postgres 💉...');
+
+  await dbPostgresMigration
+    .createQueryBuilder()
+    .insert()
+    .into(SpecializationCategory)
+    .values(specializationList)
+    .execute();
+  console.log('`EMR Category` data injection successful! ✅');
 
   console.log('Injecting `Transaction Log` into debio-postgres 💉...');
   await dbPostgresMigration
