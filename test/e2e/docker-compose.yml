@@ -4,7 +4,7 @@ services:
   backend:
     container_name: debio-backend
     restart: always
-    image: debionetwork/debio-backend:2.1.0
+    image: debionetwork/debio-backend:latest
     volumes:
       - ./.env:/app/.env
       - ./service-account.json:/app/service-account.json

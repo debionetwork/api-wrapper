@@ -1,6 +1,5 @@
 import { apiClientRequest } from './index';
 
-export async function getSignedUrl(url: string, key: string, auth: any) {
-  const result = await apiClientRequest(url, key, auth).get('/pinata-jwt');
-  return result;
+export async function pinataJwt(url: string, key: string, auth: any) {
+  return await apiClientRequest(url, key, auth).get('/auth/pinata-jwt');
 }
