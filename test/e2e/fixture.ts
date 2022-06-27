@@ -55,6 +55,7 @@ module.exports = async () => {
       EmrCategory,
       ServiceCategory,
       SpecializationCategory,
+      DnaCollectionProcess,
     ],
     synchronize: true,
   });
