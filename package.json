@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.2-beta.0",
   "description": "Backend API wrapper to call DeBio Backend endpoints.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
