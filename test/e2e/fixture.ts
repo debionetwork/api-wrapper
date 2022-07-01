@@ -13,9 +13,11 @@ import { Reward } from '../mocks/postgres/models/reward/reward.entity';
 import { EmrCategory } from '../mocks/postgres/models/category/emr.entity';
 import { ServiceCategory } from '../mocks/postgres/models/category/service.entity';
 import { SpecializationCategory } from '../mocks/postgres/models/category/specialization.entity';
+import { DnaCollectionCategory } from '../mocks/postgres/models/category/collection.entity';
 import { emrList } from '../mocks/postgres/models/category/emr.mock.data';
 import { serviceList } from '../mocks/postgres/models/category/service.mock.data';
 import { specializationList } from '../mocks/postgres/models/category/specialization.mock.data';
+import { dnaCollectionList } from "../mocks/postgres/models/category/collection.mock.data";
 
 function initalPostgresConnection(): Promise<Connection> {
   return createConnection({
@@ -53,6 +55,7 @@ module.exports = async () => {
       EmrCategory,
       ServiceCategory,
       SpecializationCategory,
+      DnaCollectionCategory,
     ],
     synchronize: true,
   });
@@ -74,7 +77,7 @@ module.exports = async () => {
     .into(ServiceCategory)
     .values(serviceList)
     .execute();
-  console.log('`EMR Category` data injection successful! ✅');
+  console.log('`Service Category` data injection successful! ✅');
 
   console.log('Injecting `Specialization Category` into debio-postgres 💉...');
 
@@ -84,7 +87,17 @@ module.exports = async () => {
     .into(SpecializationCategory)
     .values(specializationList)
     .execute();
-  console.log('`EMR Category` data injection successful! ✅');
+  console.log('`Specialization Category` data injection successful! ✅');
+
+  console.log('Injecting `DNA Collection Category` into debio-postgres 💉...');
+
+  await dbPostgresMigration
+    .createQueryBuilder()
+    .insert()
+    .into(DnaCollectionCategory)
+    .values(dnaCollectionList)
+    .execute();
+  console.log('`DNA Collection Category` data injection successful! ✅');
 
   console.log('Injecting `Transaction Log` into debio-postgres 💉...');
   await dbPostgresMigration
