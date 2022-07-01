@@ -13,7 +13,7 @@ import { Reward } from '../mocks/postgres/models/reward/reward.entity';
 import { EmrCategory } from '../mocks/postgres/models/category/emr.entity';
 import { ServiceCategory } from '../mocks/postgres/models/category/service.entity';
 import { SpecializationCategory } from '../mocks/postgres/models/category/specialization.entity';
-import { DnaCollectionProcess } from '../mocks/postgres/models/category/collection.entity';
+import { DnaCollectionCategory } from '../mocks/postgres/models/category/collection.entity';
 import { emrList } from '../mocks/postgres/models/category/emr.mock.data';
 import { serviceList } from '../mocks/postgres/models/category/service.mock.data';
 import { specializationList } from '../mocks/postgres/models/category/specialization.mock.data';
@@ -55,7 +55,7 @@ module.exports = async () => {
       EmrCategory,
       ServiceCategory,
       SpecializationCategory,
-      DnaCollectionProcess,
+      DnaCollectionCategory,
     ],
     synchronize: true,
   });
@@ -89,15 +89,15 @@ module.exports = async () => {
     .execute();
   console.log('`Specialization Category` data injection successful! ✅');
 
-  console.log('Injecting `DNA Collection Process` into debio-postgres 💉...');
+  console.log('Injecting `DNA Collection Category` into debio-postgres 💉...');
 
   await dbPostgresMigration
     .createQueryBuilder()
     .insert()
-    .into(DnaCollectionProcess)
+    .into(DnaCollectionCategory)
     .values(dnaCollectionList)
     .execute();
-  console.log('`DNA Collection Process` data injection successful! ✅');
+  console.log('`DNA Collection Category` data injection successful! ✅');
 
   console.log('Injecting `Transaction Log` into debio-postgres 💉...');
   await dbPostgresMigration

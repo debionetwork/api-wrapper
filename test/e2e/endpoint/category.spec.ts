@@ -50,6 +50,7 @@ describe('Service Category Storage API integration test', () => {
 
 describe('DNA Collection Process Storage API integration test', () => {
   it(' endpoint should return', async () => {
+    try {
     const result = await dnaCollectionProcess(debioTestUrl, debioApiKey, null);
     expect(result.status).toEqual(200);
     expect(result.data).toEqual(
@@ -59,5 +60,9 @@ describe('DNA Collection Process Storage API integration test', () => {
         }),
       ]),
     );
+    }
+    catch(e){
+      console.log(e);
+    }
   })
 })

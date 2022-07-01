@@ -1,6 +1,6 @@
-import { DnaCollectionProcess } from "./collection.entity";
+import { DnaCollectionCategory } from "./collection.entity";
 
-export const dnaCollectionList: DnaCollectionProcess[] = [
+export const dnaCollectionList: DnaCollectionCategory[] = [
   {
     id: 1,
     name: "Covid 19",

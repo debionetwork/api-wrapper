@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity({ name: 'dna_collection' })
-export class DnaCollectionProcess {
+@Entity({ name: 'dna_collection_category' })
+export class DnaCollectionCategory  {
   @PrimaryGeneratedColumn()
   id: number;
 
